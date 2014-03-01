@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'watchr'
+gem 'observr'
+gem 'haml'
 gem 'rev'
 gem 'thor'

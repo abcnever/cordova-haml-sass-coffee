@@ -1,19 +1,20 @@
-ROOT =  File.expand_path(File.dirname(__FILE__) + "/..")
+ROOT_DIR = Dir.pwd
 
 class Convert < Thor
+
   desc "haml", "converts and puts haml in www"
   def haml
-    `haml -r #{ROOT}/src/haml/helpers.rb #{ROOT}/src/haml/index.haml #{ROOT}/www/index.html`
+    `haml -r #{ROOT_DIR}/src/haml/helpers.rb #{ROOT_DIR}/src/haml/index.html.haml #{ROOT_DIR}/www/index.html`
   end
 
   desc "sass", "converts and puts sass in www"
   def sass
-    `sass --update #{ROOT}/src/sass:#{ROOT}/www/stylesheets`
+    'sass --update #{ROOT_DIR}/src/sass:#{ROOT_DIR}/www/stylesheets'
   end
 
   desc "coffee", "converts and puts coffeescript in www"
   def coffee
-    `coffee -o #{ROOT}/www/javascripts -c #{ROOT}/src/coffee_script/`
+    `coffee -o #{ROOT_DIR}/www/js -c #{ROOT_DIR}/src/coffeescript/`
   end
 
   desc "all", "Convert haml, sass and coffee"
@@ -26,6 +27,6 @@ class Convert < Thor
   desc "watch", "Start watchr to convert haml, sass and coffee source as it is modified"
   def watch
     invoke :all
-    system "cd #{ROOT} && watchr converter.rb"
+    system "cd #{ROOT_DIR} && watchr converter.rb"
   end
 end

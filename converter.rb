@@ -1,5 +1,5 @@
-watch /src\/.*\.haml/ do |md| `thor convert:haml` end
-watch /src\/.*\.rb/ do |md| `thor convert:haml` end
-watch /src\/.*\.scss/ do |md| `thor convert:sass` end
-watch /src\/.*\.sass/ do |md| `thor convert:sass` end
-watch /src\/.*\.coffee/ do |md| `thor convert:coffee` end
+watch 'src/haml/.*\.haml' do |md| system('thor convert:haml') end
+watch 'src/haml/.*\.rb' do |md| system('thor convert:haml') end
+watch 'src/sass/.*\.scss' do |md| system(`thor convert:sass`) end
+watch 'src/sass/.*\.sass' do |md| system(`thor convert:sass`) end
+watch 'src/coffeescript/.*\.coffee' do |md| system(`thor convert:coffee`) end
