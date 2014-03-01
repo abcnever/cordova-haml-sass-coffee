@@ -24,7 +24,7 @@
 
     2.1.0
 
-  for '.ruby-gemset'
+  for `.ruby-gemset`
 
     <new-project-name>
 
