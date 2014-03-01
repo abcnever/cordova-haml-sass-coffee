@@ -1,18 +1,23 @@
-1.create new project with phonegap
 
-    phonegap create <new-project-name>
-
-2.cloning this repo into your project as template
+1.cloning this repo into your project as template
 
     git clone --depth 1 --origin source git@git.syncidlabs.com:syncidlabs/phonegap-template.git <new-project-name>
+
+  and remove the git history
+
+    rm -rf <new-project-name>/.git
+
+2.create new project with phonegap
+
+    phonegap create <new-project-name>
 
 3.go into the new project's directory
 
     cd <new-project-name>
 
-4.recreate the git project under the new name
+4.reinit the git project
 
-    git create <new-project-name>
+    git init
 
 5.create the necessary `.ruby-version` and `.ruby-gemset` files:
 
