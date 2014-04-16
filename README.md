@@ -19,7 +19,9 @@
 
     git init
 
-5.create the necessary `.ruby-version` and `.ruby-gemset` files:
+5.if you don't use RVM, skip this step.
+
+  create the necessary `.ruby-version` and `.ruby-gemset` files:
 
   for `.ruby-version`
 
