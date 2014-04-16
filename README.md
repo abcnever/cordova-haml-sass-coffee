@@ -43,7 +43,11 @@
 
   follow the instruction and give it a custom name as you wish
 
-8.use
+8. install the coffeescript command line bin file.
+
+    sudo npm install -g coffee-script
+
+9.use
 
     observr converter.rb
 
