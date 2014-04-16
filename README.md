@@ -1,7 +1,7 @@
 
 1.cloning this repo into your project as template
 
-    git clone --depth 1 --origin source git@git.syncidlabs.com:syncidlabs/phonegap-template.git <new-project-name>
+    git clone --depth 1 --origin source <this repo's ssh url> <new-project-name>
 
   and remove the git history
 
