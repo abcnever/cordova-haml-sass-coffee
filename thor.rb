@@ -15,7 +15,7 @@ class Convert < Thor
       return
     end
 
-    `haml -I ./src/haml/helpers/ ./#{file} ./www/#{o_file}`
+    `./haml_convert.rb #{file} www/#{o_file}`
   end
 
   desc "sass", "converts and puts sass in www"
@@ -45,4 +45,17 @@ class Convert < Thor
   def basename(filename)
     Pathname.new(filename).basename.to_s
   end
+
+  # desc "all", "Convert haml, sass and coffee"
+  # def all
+  #   invoke :haml
+  #   invoke :sass
+  #   invoke :coffee
+  # end
+
+  # desc "watch", "Start watchr to convert haml, sass and coffee source as it is modified"
+  # def watch
+  #   invoke :all
+  #   system "cd #{ROOT_DIR} && watchr converter.rb"
+  # end
 end

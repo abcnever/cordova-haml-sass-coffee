@@ -1,0 +1,22 @@
+!!! 5
+
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "telephone=no", name: "format-detection"}
+    %meta{content: "user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi", name: "viewport"}
+    %link{href: "css/#{file_basename_without_ext}.css", rel: "stylesheet", type: "text/css"}
+    %script
+      :plain
+        window.current_page = "#{file_basename_without_ext}"
+
+  %body
+    #main-screen.active
+      .overlay
+      = yield
+
+    = render_partial "footer", active_page: "#{file_basename_without_ext}"
+
+    / %script{src: "js/jquery.js"}
+    %script{src: "cordova.js"}
+    %script{src: "js/#{file_basename_without_ext}.js"}
