@@ -2,3 +2,4 @@
 /.ruby-gemset
 /design_doc/*
 /.cordova/*
+.sass-cache
