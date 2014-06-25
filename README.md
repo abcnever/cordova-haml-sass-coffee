@@ -1,6 +1,6 @@
 1.Pull from this repository for a fresh cordova / phonegap app
 
-    git pull git@github.com:NeverAgain/phonegap-haml-sass-coffee.git master
+    git pull --rebase git@github.com:NeverAgain/phonegap-haml-sass-coffee.git master
 
 2.if you don't use RVM, skip this step.
 
@@ -36,12 +36,7 @@
 
     thor update <custom name>
 
-6.Make scripts executable
-
-    chmod 755 haml_convert.rb
-    chmod 755 converter.rb
-
-7.use
+6.use
 
     ./converter.rb
 
