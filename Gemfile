@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'observr'
+gem 'listen', '~> 2.0'
 gem 'haml'
-gem 'rev'
 gem 'thor'
 gem 'sass'
 gem 'coffee-script'
