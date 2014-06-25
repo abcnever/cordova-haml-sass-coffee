@@ -1,1 +1,1 @@
-Committing for empty directory
+This folder is for storing your scss/sass files. Note that by default the converter creates scss for new haml files. To change the default behaviour to sass, change line 30 of thor.rb to sass and update thor as well.

@@ -1,25 +1,8 @@
+1.Pull from this repository for a fresh cordova / phonegap app
 
-1.cloning this repo into your project as template
+    git pull git@github.com:NeverAgain/phonegap-haml-sass-coffee.git master
 
-    git clone --depth 1 --origin source <this repo's ssh url> <new-project-name>
-
-  and remove the git history
-
-    rm -rf <new-project-name>/.git
-
-2.create new project with phonegap
-
-    phonegap create <new-project-name>
-
-3.go into the new project's directory
-
-    cd <new-project-name>
-
-4.reinit the git project
-
-    git init
-
-5.if you don't use RVM, skip this step.
+2.if you don't use RVM, skip this step.
 
   create the necessary `.ruby-version` and `.ruby-gemset` files:
 
@@ -35,22 +18,31 @@
 
     <new-project-name>
 
-6.install the necessary gems first
+3.install the necessary gems first
 
     bundle install
 
-7.install the thor commands in the thor.rb
+4.install the necessary tools to monitor directories
+
+    sudo apt-get install inotify-tools
+
+5.install the thor commands in the thor.rb
 
     thor install ./thor.rb
 
-  follow the instruction and give it a custom name as you wish
+  follow the instruction and give it a custom name as you wish.
 
-8.install the coffeescript command line bin file.
+  whenever this repository is updated it's recommended to do
 
-    sudo npm install -g coffee-script
+    thor update <custom name>
 
-9.use
+6.Make scripts executable
 
-    observr converter.rb
+    chmod 755 haml_convert.rb
+    chmod 755 converter.rb
+
+7.use
+
+    ./converter.rb
 
   to monitor and convert haml/coffeescript/scss to html/js/css on save
