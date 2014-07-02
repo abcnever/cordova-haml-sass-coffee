@@ -1,6 +1,7 @@
 ROOT_DIR = Dir.getwd
 
 require 'coffee-script'
+require 'fileutils'
 
 class Convert < Thor
   Dir.chdir(ROOT_DIR)
@@ -51,6 +52,7 @@ class Convert < Thor
   desc "sass", "converts and puts sass in www"
   def sass(file)
     file_basename = basename(file)
+    sub_dir = get_dir(file).sub "src/sass", "www/css"
 
     if (file_basename.include?('.sass') || file_basename.include?('.scss')) && file_basename.include?('.css')
       o_file = file_basename.gsub /.sass/, ''
@@ -62,52 +64,62 @@ class Convert < Thor
       return
     end
 
-    `sass #{file}:./www/css/#{o_file}`
+    `sass #{file}:#{sub_dir}/#{o_file}`
   end
 
   desc "remove_sass", "remove the compiled sass file in www"
   def remove_sass(file)
     file_basename = basename_without_ext(file)
+    sub_dir = get_dir(file).sub "src/sass", "www/css"
 
     if !file_basename.include? ".css"
       file_basename += ".css"
     end
 
-    `rm www/css/#{file_basename}`
+    `rm #{sub_dir}/#{file_basename}`
   end
 
   desc "coffee", "converts and puts coffeescript in www"
   def coffee(file)
     file_basename = basename_without_ext(file)
-
-    js = CoffeeScript.compile File.read(file)
+    sub_dir = get_dir(file).sub "src/coffeescript", "www/js"
+    js = CoffeeScript.compile File.read(file), {bare: true}
 
     if !file_basename.include? ".js"
       file_basename += ".js"
     end
 
-    File.write("./www/js/#{file_basename}", js)
+    unless File.exist? sub_dir
+      FileUtils.mkdir_p sub_dir
+    end
+
+    File.write("#{sub_dir}/#{file_basename}", js)
   end
 
   desc "remove_coffee", "remove the compiled coffee file in www"
   def remove_coffee(file)
     file_basename = basename_without_ext(file)
+    sub_dir = get_dir(file).sub "src/coffeescript", "www/js"
 
     if !file_basename.include? ".js"
       file_basename += ".js"
     end
 
-    `rm www/js/#{file_basename}`
+    `rm #{sub_dir}/#{file_basename}`
   end
 
   private
 
-  def basename(filename)
-    Pathname.new(filename).basename.to_s
+  def basename(file_path)
+    File.basename(file_path)
   end
 
-  def basename_without_ext(filename)
-    File.basename filename, ".*"
+  def basename_without_ext(file_path)
+    File.basename file_path, ".*"
+  end
+
+  def get_dir(file_path)
+    File.dirname(file_path)
   end
 
   # desc "all", "Convert haml, sass and coffee"
