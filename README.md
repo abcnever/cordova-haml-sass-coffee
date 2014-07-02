@@ -2,6 +2,12 @@
 
     git pull --rebase git@github.com:NeverAgain/phonegap-haml-sass-coffee.git master
 
+  if you don't want to include this repo's git history. delete .git directory and
+
+    git init
+
+  to re-initialize a git repo
+
 2.if you don't use RVM, skip this step.
 
   create the necessary `.ruby-version` and `.ruby-gemset` files:
