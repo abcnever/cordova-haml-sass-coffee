@@ -6,30 +6,31 @@
     %meta{content: "telephone=no", name: "format-detection"}
     %meta{content: "user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi", name: "viewport"}
     / Bootstrap
-    / %link{href: "css/vendor/bootstrap.min.css", rel: "stylesheet", type: "text/css"}
-    / %link{href: "css/vendor/bootstrap-theme.min.css", rel: "stylesheet", type: "text/css" }
-    %link{href: "css/#{file_basename_without_ext}.css", rel: "stylesheet", type: "text/css"}
-    %script
-      :plain
-        window.current_page = "#{file_basename_without_ext}"
+    %link{href: "css/vendor/bootstrap.min.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "css/vendor/bootstrap-theme.min.css", rel: "stylesheet", type: "text/css" }
+    / %link{href: "css/#{file_basename_without_ext}.css", rel: "stylesheet", type: "text/css"}
+    / %script
+    /   :plain
+    /     window.current_page = "#{file_basename_without_ext}"
 
   %body
-    #main-screen.active
-      .overlay
-      = yield
+    = yield
 
+    :javascript
+      app.initialize();
     / example for rendering partial
     / = render_partial "footer"
 
     / Underscore JS <- backbone dependency
-    / %script{src: "underscore-min.js"}
+    %script{src: "underscore-min.js"}
 
     / Backbone
-    / %script{src: "js/vendor/backbone-1.1.2.min.js"}
+    %script{src: "js/vendor/backbone-1.1.2.min.js"}
 
     / jQuery
-    / %script{src: "js/vendor/jquery-1.11.1.min.js"}
+    %script{src: "js/vendor/jquery-1.11.1.min.js"}
 
+    / Cordova's native js
     %script{src: "cordova.js"}
 
     / Use this line if you are working with phonegap instead
