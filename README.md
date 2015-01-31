@@ -1,3 +1,5 @@
+Platform: Linux - Ubuntu
+
 1.Pull from this repository for a FRESH NEW cordova / phonegap app, make sure your git stage is clean as well beforehand
 
     git pull --rebase git@github.com:NeverAgain/phonegap-haml-sass-coffee.git master
