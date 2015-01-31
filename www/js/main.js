@@ -1,7 +1,7 @@
 require.config({
   baseUrl: 'js/vendor',
   paths: {
-    jquery: 'jquery-1.11.1.min',
+    jquery: 'jquery-2.1.3.min',
     backbone: 'backbone-1.1.2.min',
     bootstrap: 'bootstrap.min'
   },
