@@ -1,4 +1,5 @@
 Platform: Linux - Ubuntu
+Description: This is a framework you can use to develop cordova apps with haml, sass, and coffeescript. What's also included are backbone.js, jQuery and bootstrap. 
 
 1.Pull from this repository for a FRESH NEW cordova / phonegap app, make sure your git stage is clean as well beforehand
 
